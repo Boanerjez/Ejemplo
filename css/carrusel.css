@@ -1,0 +1,162 @@
+/* ESTILOS GLOBALES
+ * Espaciado debajo del pie de página y texto del cuerpo más ligero
+* -------------------------------------------------- */
+
+body {
+  padding-bottom: 40px;
+  color: #5a5a5a;
+ 
+}
+
+
+/* PERSONALIZAR LA BARRA DE NAVEGACIÓN
+-------------------------------------------------- */
+
+/* Clase especial en .container que rodea a .navbar, utilizada para posicionarla en su lugar. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+}
+
+/* Gira el relleno para una visualización adecuada en ventanas estrechas */
+.navbar-wrapper > .container {
+  padding-right: 0;
+  padding-left: 0;
+}
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.navbar-wrapper .navbar .container {
+  width: auto;
+}
+
+
+/* PERSONALIZAR EL CARRUSEL
+-------------------------------------------------- */
+
+/* Clase base de carrusel */
+.carousel-inner > .item > img {
+  /* Asegura que la imagen siempre ocupe el 100% del ancho y la altura */
+  width: 100%;
+  height: 100%;
+  /* Mantiene la proporción de la imagen y la hace cubrir el contenedor.
+     Las partes sobrantes se recortan (crop). */
+  object-fit: cover;
+  /* El resto de tus propiedades, ajustadas: */
+  position: absolute; /* Mantenemos el posicionamiento absoluto */
+  top: 0;
+  left: 0;
+}
+
+/* También es crucial ajustar la altura de los contenedores: */
+.carousel .item {
+  /* Establece una altura fija para el contenedor del slide.
+     Asegúrate de que esta altura coincida con la altura que quieres para la imagen. */
+  height: 400px; /* Cambiado de 250px a 450px para coincidir con la altura deseada */
+  background-color: #777;
+}
+
+/* La altura del contenedor principal puede mantenerse o ajustarse según necesites */
+.carousel {
+  height: 400px; /* Coincide con la altura del item */
+  margin-bottom: 60px;
+
+}
+
+
+/* CONTENIDO DE MARKETING
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: 400;
+}
+.marketing .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+/* --- ESTILOS PARA EL EFECTO DE IMAGEN (SOBRESALIR) --- */
+
+/* Estilos base para la imagen con la clase img-circle */
+.img-circle {
+    /* Agrega una transición suave para la animación */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    
+    /* 1. Mantenemos display: block; para la transformación. */
+    display: block; 
+    
+    /* 2. ¡La Solución! Esto centra el elemento 'block' horizontalmente. */
+    margin: 0 auto; 
+}
+
+/* Estilos al pasar el puntero (el efecto "sobresalir") */
+.img-circle:hover {
+    /* Escala: agranda la imagen ligeramente (por ejemplo, un 5%) */
+    transform: scale(1.05); 
+    
+    /* Sombra: añade una sombra para el efecto de "elevación" */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
+    
+    cursor: pointer; /* Cambia el cursor para indicar interactividad */
+}
+
+
+/* REPORTAJES
+------------------------- */
+
+.featurette-divider {
+  margin: 80px 0; /* Deja más espacio entre los <hr> de Bootstrap */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+
+/* CSS RESPONSIVO
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+  /* Posicionamiento de la barra de navegación foo */
+  .navbar-wrapper {
+    margin-top: 20px;
+  }
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0;
+    border-radius: 4px; /* La barra de navegación se despega de la parte superior, así que redondeamos las esquinas */
+  }
+
+  /* Aumentar el tamaño del contenido del carrusel */
+  .carousel-caption p {
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: 1.4;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+} /* <--- ¡Esta llave cierra la media query de 768px! */
+
+/* El siguiente bloque estaba incorrecto */
+@media (min-width: 992px) {
+  .featurette-heading { /* <-- ¡Llave de apertura añadida! */
+    margin-top: 120px;
+  } /* <-- ¡Llave de cierre añadida! */
+}
